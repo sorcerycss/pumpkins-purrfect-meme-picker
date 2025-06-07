@@ -1,14 +1,30 @@
 import { catsData } from './data.js';
 
-// function getEmotionsArray(cats) {
-//     const emotionsArray = []
-//     for (let i = 0; i < cats.length; i++) {
-//         for (let j = 0; j < cats[i].emotionTags.length; j++) {
-//             emotionsArray.push(cats[i].emotionTags[j])
-//         }
-//     }
-//     console.log(emotionsArray)
-// }
+const emotionRadios = document.getElementById('emotion-radios')
+const getImageBtn = document.getElementById('get-image-btn')
+
+emotionRadios.addEventListener('change', highlightCheckedOption)
+
+getImageBtn.addEventListener('click', getMatchingCatsArray)
+
+function highlightCheckedOption(e) {
+    const radios = document.getElementsByClassName('radio')
+    for (let radio of radios) {
+        radio.classList.remove('highlight')
+    }
+    document.getElementById(e.target.id).parentElement.classList.add('highlight')
+}
+
+function getMatchingCatsArray() {
+    /*
+    Challenge:
+    1. Add code to getMatchingCatsArray so 
+       that the two existing lines of code 
+       only run if an emotion has been selected.
+    */
+    const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
+    console.log(selectedEmotion)
+}
 
 function getEmotionsArray(cats) {
     const emotionsArray = []
